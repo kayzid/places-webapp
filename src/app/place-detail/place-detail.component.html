@@ -1,0 +1,43 @@
+
+<div *ngIf="placeDetail" class="center"> 
+    
+    <mat-card class="example-card"> 
+        
+        <mat-card-header style="border: 100px;">
+            
+            <mat-card-title>{{placeDetail.name}}</mat-card-title>
+            <mat-card-subtitle>{{placeDetail.city}},{{placeDetail.country}}</mat-card-subtitle>
+          </mat-card-header>
+       
+        <mat-card-content style="text-align: center;">
+            <img mat-card-image src="{{placeDetail.imageUrl}}" class="place-img">
+        </mat-card-content>
+
+        <mat-card-content style="font-size: 16px;text-align: justify;">
+            <p>
+                {{placeDetail.descriptions}}
+            </p>
+            <p>
+               Price: {{placeDetail.prices.price}}
+            </p>
+            <p>
+                Bed: {{placeDetail.numBedroom}} <br />
+                Bath : {{placeDetail.numBathroom}}
+             </p>
+             <p>
+                 Max occupancy: {{placeDetail.numPeople}}
+             </p>
+            
+            <p *ngIf="placeDetail.prices.dateValidStart">
+                Availability: {{placeDetail.prices.dateValidStart}} - {{placeDetail.prices.dateValidEnd}}
+            </p>
+        </mat-card-content>
+        <mat-card-actions fxLayout="row" fxLayoutAlign="center">                    
+            <button mat-raised-button (click)="goBack()">Back</button>
+        </mat-card-actions>   
+       
+    </mat-card>
+    
+  </div>
+
+

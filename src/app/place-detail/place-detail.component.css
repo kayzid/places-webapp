@@ -1,0 +1,12 @@
+.example-card {
+    max-width: 1200px;
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+
+  .place-img{
+      max-width: 600px;
+      max-height: 700px;
+  }

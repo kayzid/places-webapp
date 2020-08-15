@@ -1,0 +1,32 @@
+
+
+
+    <div  class="content" fxLayout="row wrap" fxLayoutGap="16px grid" *ngIf="places" >
+        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let place of places">
+            <mat-card class="mat-elevation-z4">
+                <mat-card-header>                    
+                    <mat-card-title class="md-card-title">{{place.name}}</mat-card-title>
+                
+                </mat-card-header>
+                <img mat-card-image src="{{place.imageUrl}}"  routerLink="/details/{{place.id}}" ng-style="{ width : places.imageUrl.split('/')[5], height : photo.places.imageUrl.split('/')[5] }" /> 
+                
+                <mat-card-content class="card-text-content">
+                    <p>
+                        {{place.city}},{{place.country}}
+                    </p>
+                </mat-card-content>   
+                <mat-card-actions fxLayout="row" fxLayoutAlign="center">                    
+                    <button mat-raised-button routerLink="/details/{{place.id}}">Details</button>
+                </mat-card-actions>                          
+            </mat-card>
+        </div>
+        <div class="mat-paginator-container" *ngIf="places.length !== 0" >
+            <mat-paginator [length]="100" [pageSize]="10" (page)="getPagesOnEvent($event)">
+            </mat-paginator>
+        </div>
+    </div>
+
+
+
+
+
